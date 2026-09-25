@@ -83,3 +83,36 @@ def calculate_age_and_deadlines():
 # Run the application
 if __name__ == "__main__":
     calculate_age_and_deadlines()
+
+import numpy as np
+import matplotlib.pyplot as plt
+
+# 1. Generate data from 0 to 2*pi
+x = np.linspace(0, 2 * np.pi, 200)
+y_cos = np.cos(x)
+y_deriv = -np.sin(x)
+
+# 2. Create the figure and set dimensions
+plt.figure(figsize=(8, 5))
+
+# 3. Plot the functions
+plt.plot(x, y_cos, label=r'$f(x) = \cos(x)$', color='blue', linewidth=2)
+plt.plot(x, y_deriv, label=r"$f'(x) = -\sin(x)$", color='red', linestyle='--', linewidth=2)
+
+# 4. Add axes and grid lines
+plt.axhline(0, color='black', linewidth=0.5)
+plt.axvline(0, color='black', linewidth=0.5)
+
+# 5. Set X-axis ticks to show radians (pi labels)
+plt.xticks(
+    [0, np.pi/2, np.pi, 3*np.pi/2, 2*np.pi], 
+    ['0', r'$\pi/2$', r'$\pi$', r'$3\pi/2$', r'$2\pi$']
+)
+
+# 6. Add title, legend, and grid
+plt.title("Derivative of Cosine Function")
+plt.legend(loc='upper right')
+plt.grid(True, linestyle=':', alpha=0.6)
+
+# 7. Display the plot
+plt.show()
